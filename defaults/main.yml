@@ -3,6 +3,7 @@
 docker_task_prefix: "=== DOCKER ==="
 
 docker_enable_custom_config: true
+docker_enable_docker_compose: false
 
 docker_template_daemon_json: "daemon.json.j2"
 docker_path_daemon_json: "/etc/docker"

@@ -10,7 +10,7 @@ This role installs docker from your distro's repository, not an omnibus daemon f
 
 It installs **pip** and its docker module automatically.
 
-It's not going to install **docker-compose**.
+It installs **docker-compose** if you set **docker_enable_docker_compose** to **true**.
 
 Also it allows to configure **daemon.json**.
 
