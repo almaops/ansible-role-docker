@@ -6,7 +6,7 @@ This ansible role installs docker
 Requirements
 ------------
 
-This role differs from [https://galaxy.ansible.com/geerlingguy/docker](geerlingguy.docker): it installs docker from your distro's repository, not an omnibus daemon from upstream. This leads to more stability.
+This role installs docker from your distro's repository, not an omnibus daemon from upstream.
 
 It installs **pip** and its docker module automatically.
 
