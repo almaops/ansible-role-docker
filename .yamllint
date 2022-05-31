@@ -4,7 +4,3 @@ rules:
   line-length:
     max: 160
     level: warning
-  empty-lines:
-    max: 4
-    max-start: 2
-    max-end: 2
