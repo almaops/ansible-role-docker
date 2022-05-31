@@ -4,6 +4,7 @@
   template:
     src: "{{ docker_template_daemon_json }}"
     dest: "{{ docker_path_daemon_json }}/{{ docker_file_daemon_json }}"
+    mode: 0600
   register: docker_task_configure
 
 - name: "{{ docker_task_prefix }} restart docker"
