@@ -1,0 +1,33 @@
+---
+galaxy_info:
+  author: Dmitrii Kashin
+  description: install and configure docker daemon
+  role_name: docker
+  license: MIT
+
+  min_ansible_version: 2.4
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - all
+
+  galaxy_tags:
+    - docker
+
+dependencies:
+
+  - role: almaops.pkg_install
+    vars:
+      pkg_install_packages:
+        - docker.io
+    when:
+      - ansible_distribution | default(undef(hint="you must gather facts before running this role")) in [ 'Ubuntu', 'Debian' ]
+
+  - role: almaops.pip_install
+    vars:
+      pip_install_packages:
+        - docker
