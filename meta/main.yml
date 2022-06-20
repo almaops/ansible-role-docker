@@ -18,15 +18,4 @@ galaxy_info:
   galaxy_tags:
     - docker
 
-dependencies:
-
-  - role: almaops.pkg_install
-    vars:
-      pkg_install_packages: "{{ ['docker.io'] + (docker_enable_docker_compose | ternary(['docker-compose'], [])) }}"
-    when:
-      - ansible_distribution | default(undef(hint="you must gather facts before running this role")) in [ 'Ubuntu', 'Debian' ]
-
-  - role: almaops.pip_install
-    vars:
-      pip_install_packages:
-        - docker
+dependencies: []

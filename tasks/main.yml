@@ -1,6 +1,23 @@
 ---
 
+- include_role:
+    name: almaops.pkg_install
+  vars:
+    pkg_install_packages: "{{ ['docker.io'] + (docker_enable_docker_compose | ternary(['docker-compose'], [])) }}"
+  when:
+    - docker_enable_pkg_install
+    - ansible_distribution | default(undef(hint="you must gather facts before running this role")) in [ 'Ubuntu', 'Debian' ]
+
+- include_role:
+    name: almaops.pip_install
+  vars:
+    pip_install_packages:
+      - docker
+  when:
+    - docker_enable_pip_install
+
 - include_tasks: configure-dockerd.yml
-  when: docker_enable_custom_config
+  when:
+    - docker_enable_configure
 
 ...
