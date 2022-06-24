@@ -22,3 +22,10 @@ docker_log_opts:
   max-size: "150m"
   max-file: "10"
   compress: "true"
+
+docker_log_driver_loki_version: "latest"
+
+docker_registry_credentials: []
+#  - registry: "docker.io"
+#    username: "almaops"
+#    password: "password"
