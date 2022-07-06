@@ -8,14 +8,6 @@
     - docker_enable_pkg_install
     - ansible_distribution | default(undef(hint="you must gather facts before running this role")) in [ 'Ubuntu', 'Debian' ]
 
-- name: "{{ docker_task_prefix }} enable Loki plugin"
-  community.docker.docker_plugin:
-    plugin_name: "grafana/loki-docker-driver:{{ docker_log_driver_loki_version }}"
-    alias: loki
-    state: enable
-  when:
-    - docker_log_driver == "loki"
-
 - include_role:
     name: almaops.pip_install
   vars:
@@ -23,6 +15,14 @@
       - docker
   when:
     - docker_enable_pip_install
+
+- name: "{{ docker_task_prefix }} enable Loki plugin"
+  community.docker.docker_plugin:
+    plugin_name: "grafana/loki-docker-driver:{{ docker_log_driver_loki_version }}"
+    alias: loki
+    state: enable
+  when:
+    - docker_log_driver == "loki"
 
 - include_tasks: configure-dockerd.yml
   when:
