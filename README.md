@@ -1,3 +1,6 @@
+# DEPRECATION WARNING
+This Ansible role has been deprecated in favor of collection [`almaops.common`](https://github.com/almaops/ansible-collection-common), which includes this role.
+
 almaops.docker
 ==========
 
